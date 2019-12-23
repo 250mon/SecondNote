@@ -51,12 +51,14 @@ public class NoteListFragment extends Fragment {
     }
 
     private class NoteAdapter extends RecyclerView.Adapter<NoteHolder> {
-        private List<SecndNote> mSecndNoteList;
+        private List<NoteEntry> mNoteList;
 
         @NonNull
         @Override
         public NoteHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return null;
+            LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
+            View itemView = layoutInflater.inflate(android.R.layout.simple_list_item_1, parent, false);
+            return new NoteHolder(itemView);
         }
 
         @Override
