@@ -1,28 +1,37 @@
 package com.jessicalab.secondnote;
 
-import java.time.Instant;
+import java.util.Date;
 import java.util.UUID;
 
 public class NoteEntry {
-    private UUID mId;
+    private final UUID mId;
     private String mTitle;
-    private Instant mDate;
+    private Date mDate;
+    private String mFolderName;
+    private String mContents;
 
     public NoteEntry() {
-        SecndNote(UUID.randomUUID());
+        this(UUID.randomUUID());
     }
 
     public NoteEntry(UUID id) {
         mId = id;
-        mDate = Instant.now();
+        mDate = new Date();
+        mTitle = "Test";
+        mFolderName = "Life";
+        mContents = "I am doing good";
     }
 
     public UUID getId() {
         return mId;
     }
 
-    public Instant getDate() {
+    public Date getDate() {
         return mDate;
+    }
+
+    public void setDate(Date date) {
+        mDate = date;
     }
 
     public String getTitle() {
@@ -31,5 +40,21 @@ public class NoteEntry {
 
     public void setTitle(String title) {
         mTitle = title;
+    }
+
+    public String getFolderName() {
+        return mFolderName;
+    }
+
+    public void setFolderName(String folderName) {
+        mFolderName = folderName;
+    }
+
+    public String getContents() {
+        return mContents;
+    }
+
+    public void setContents(String contents) {
+        mContents = contents;
     }
 }
